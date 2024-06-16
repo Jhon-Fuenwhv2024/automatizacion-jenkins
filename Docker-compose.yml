@@ -8,6 +8,9 @@ services:
       dockerfile: Dockerfile
     ports: 
       - "5173"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=5173
     networks:
       - proyectos-app
 
@@ -21,6 +24,8 @@ services:
       - microservicios
     environment:
       API_URL: http://microservicios:5173
+        - MONGO_URI=${MONGO_URI}
+        - PORT=5172
     ports:
       - "5172"
     networks:
